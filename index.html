@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Konverter</title>
+</head>
+<body>
+
+    <div class="col-sm-6 offset-sm-3 text-center content">
+        <h2> Konverter mjernih jedinica</h2>
+        <p> Odaberite fizičku veličinu: </p>
+        <button class="btn btn-info" onclick="pokaziDuzinu()">Dužina</button>
+        <button class="btn btn-info" onclick="pokaziMasu()">Masa</button>
+        <button class="btn btn-info" onclick="pokaziVolumen()">Volumen</button>
+        <button class="btn btn-info" onclick="pokaziPovrsinu()">Površina</button>
+    </div>
+    <div class=okolo>
+    <div class="jedinica" id="duzina">
+        <h2 class="naslov">Dužina: </h2>
+        <form action="">
+        <label>Feet:</label>
+        <input id="unosFeet" type="number" placeholder="ft" oninput="Feet(this.value)">
+        <label>Metri:</label>
+        <input id="unosMetre" type="number" placeholder="m" oninput="Metri(this.value)">
+        <label>Centimetri:</label>
+        <input id="unosCm" type="number" placeholder="cm" oninput="Centimetri(this.value)">
+        <label>Kilometri:</label>
+        <input id="unosKm" type="number" placeholder="km" oninput="Kilometri(this.value)">
+        <label>Inches:</label>
+        <input id="unosIn" type="number" placeholder="in" oninput="Inches(this.value)">
+        <input type="reset" class="reset"></form>
+        </div>
+    </div>  
+    <div class="jedinica" id="masa">
+        <h2 class="naslov"> Masa</h2>
+        <form action="">
+        <label>Pounds:</label>
+        <input id="unosPounds" type="number" placeholder="lbs" oninput="Pounds(this.value)">
+        <label>Kilogrami:</label>
+        <input id="unosKg" type="number" placeholder="kg" oninput="Kilogrami(this.value)">
+        <label>Grami:</label>
+        <input id="unosG" type="number" placeholder="g" oninput="Grami(this.value)">
+        <label>Ounces:</label>
+        <input id="unosOunces" type="number" placeholder="oz" oninput="Ounces(this.value)"><br>
+        <input type="reset" class="reset"></form>
+    </form>
+    </div>
+    <div class="jedinica" id="volumen">
+        <h2 class="naslov"> Volumen</h2>
+        <form action="">
+        <label>Kubni metar:</label>
+        <input id="unosKubniM" type="number" placeholder="m3" oninput="KubniMetri(this.value)">
+        <label>Kubni centimetar:</label>
+        <input id="unosKubniCM" type="number" placeholder="cm3" oninput="KubniCentimetri(this.value)">
+        <label>Kubni decimetar:</label>
+        <input id="unosKubniDM" type="number" placeholder="dm3" oninput="KubniDecimetri(this.value)">
+        <label>Kubni milimetar:</label>
+        <input id="unosKubniMM" type="number" placeholder="mm3" oninput="KubniMilimetri(this.value)">
+        <input type="reset" class="reset">
+    </form>
+    </div>
+    <div class="jedinica" id="povrsina">
+        <h2 class="naslov"> Površina </h2>
+        <form action="">
+        <label>Kv.metar:</label>
+      
+        <input id="unosKVm" type="number" placeholder="m2" oninput="KvMetri(this.value)">
+        <label>Kv.centimetar:</label>
+        <input id="unosKVcm" type="number" placeholder="cm2" oninput="KvCentimetri(this.value)">
+        <label>Kv.decimetar:</label>
+        <input id="unosKVdm" type="number" placeholder="dm2" oninput="KvDecimetri(this.value)">
+        <label>Kv.milimetar:</label>
+        <input id="unosKVmm" type="number" placeholder="mm2" oninput="KvMilimetri(this.value)">
+        <input type="reset" class="reset">
+    </form>
+    </div>
+
+<script>
+    document.getElementById("duzina").style.display = "none";
+    document.getElementById("masa").style.display = "none";
+    document.getElementById("volumen").style.display = "none";
+    document.getElementById("povrsina").style.display = "none";
+    
+
+    function pokaziDuzinu (){
+        document.getElementById("duzina").style.display = "block";
+        document.getElementById("masa").style.display = "none";
+        document.getElementById("volumen").style.display = "none";
+        document.getElementById("povrsina").style.display = "none";
+
+    }
+    function pokaziMasu()
+    {
+        document.getElementById("masa").style.display = "block";
+        document.getElementById("duzina").style.display = "none";
+        document.getElementById("volumen").style.display = "none";
+        document.getElementById("povrsina").style.display = "none";
+
+    }
+    function pokaziVolumen()
+    {
+        document.getElementById("masa").style.display = "none";
+        document.getElementById("duzina").style.display = "none";
+        document.getElementById("volumen").style.display = "block";
+        document.getElementById("povrsina").style.display = "none";
+
+    }
+    function pokaziPovrsinu (){
+        document.getElementById("duzina").style.display = "none";
+        document.getElementById("masa").style.display = "none";
+        document.getElementById("volumen").style.display = "none";
+        document.getElementById("povrsina").style.display = "block";
+
+    }
+    function Feet (unos){
+        document.getElementById("unosCm").value = unos/ 0.032808;
+        document.getElementById("unosMetre").value = unos/3.2808;
+        document.getElementById("unosKm").value = unos/3280.8;
+        document.getElementById("unosIn").value = unos*12;
+    }
+    function Metri (unos){
+        document.getElementById("unosFeet").value = unos*3.2808;
+        document.getElementById("unosCm").value = unos*100;
+        document.getElementById("unosKm").value = unos/1000;
+        document.getElementById("unosIn").value = unos*39.370;
+      }
+      function Centimetri (unos){
+        document.getElementById("unosFeet").value = unos*0.032808;
+        document.getElementById("unosMetre").value = unos/100;
+        document.getElementById("unosKm").value = unos/100000;
+        document.getElementById("unosIn").value = unos*0.39370;
+      }
+      function Kilometri (unos){
+        document.getElementById("unosFeet").value = unos*3280.8;
+        document.getElementById("unosMetre").value = unos*1000;
+        document.getElementById("unosIn").value = unos*39370;
+        document.getElementById("unosCm").value = unos*100000;
+      }
+      function Inches (unos){
+        document.getElementById("unosFeet").value = unos*0.083333;
+        document.getElementById("unosMetre").value = unos/39.370;
+        document.getElementById("unosKm").value = unos/39370;
+        document.getElementById("unosCm").value = unos/0.39370;
+      }
+      function Pounds (unos){
+          document.getElementById ("unosKg").value = unos/2.2046;
+          document.getElementById ("unosG").value = unos/0.0022046;
+      }
+      function Pounds (unos){
+          document.getElementById ("unosKg").value = unos/2.2046;
+          document.getElementById ("unosG").value = unos/0.0022046;
+          document.getElementById ("unosOunces").value = unos*16;
+      }
+      function Kilogrami (unos){
+          document.getElementById ("unosG").value = unos*1000;
+          document.getElementById ("unosPounds").value = unos*2.2046;
+          document.getElementById ("unosOunces").value = unos*35.274;
+      }
+      function Grami (unos){
+          document.getElementById ("unosKg").value = unos/1000;
+          document.getElementById ("unosPounds").value = unos*0.0022046;
+          document.getElementById ("unosOunces").value = unos*0.035274;
+      }
+      function KubniMetri (unos)
+      {
+          document.getElementById("unosKubniCM").value = unos*1000000;
+          document.getElementById("unosKubniDM").value = unos*1000;
+          document.getElementById("unosKubniMM").value = unos*1000000000;
+      }
+      function KubniCentimetri (unos)
+      {
+          document.getElementById("unosKubniM").value = unos/1000000;
+          document.getElementById("unosKubniDM").value = unos/1000;
+          document.getElementById("unosKubniMM").value = unos*1000;
+      }
+      function KubniDecimetri (unos)
+      {
+          document.getElementById("unosKubniM").value = unos/1000;
+          document.getElementById("unosKubniCM").value = unos*1000;
+          document.getElementById("unosKubniMM").value = unos*1000000;
+      }
+      function KubniMilimetri (unos)
+      {
+          document.getElementById("unosKubniM").value = unos/1000000000;
+          document.getElementById("unosKubniCM").value = unos/1000;
+          document.getElementById("unosKubniDM").value = unos/1000000;
+      }
+      function KvMetri (unos)
+      {
+          document.getElementById("unosKVdm").value = unos*100;
+          document.getElementById("unosKVcm").value = unos/10000;
+          document.getElementById("unosKVmm").value = unos/1000000;
+      }
+      function KvDecimetri (unos)
+      {
+          document.getElementById("unosKVm").value = unos/100;
+          document.getElementById("unosKVcm").value = unos*100;
+          document.getElementById("unosKVmm").value = unos*10000;
+      }
+      function KvCentimetri (unos)
+      {
+          document.getElementById("unosKVm").value = unos/10000;
+          document.getElementById("unosKVdm").value = unos/100;
+          document.getElementById("unosKVmm").value = unos*100;
+      }
+      function KvMilimetri (unos)
+      {
+          document.getElementById("unosKVm").value = unos/1000000;
+          document.getElementById("unosKVdm").value = unos/10000;
+          document.getElementById("unosKVcm").value = unos/100;
+      }
+
+
+    
+    
+    
+</script>
+<style>
+    .content{
+        margin-top: 50px;
+        padding: 30px;
+        border-radius: 10px;
+        border: 10px solid burlywood;
+        background-color: white;
+        color: brown;
+      
+    }
+    .content h2{
+        color: brown
+    }
+    .btn{
+        background-color: burlywood;
+        width: 100px;
+        color: brown;
+        font-weight: bold;
+ }
+ .jedinica {
+     margin-top: 50px;
+     text-align: center;
+ }
+ .jedinica h2{
+     margin-bottom: 10px;
+ }
+ body{
+     background-image: url(trokut2.jpg);
+     background-size: cover;
+ }
+ input{
+     height: 40px;
+     border: 2px solid brown;
+     text-align: center;
+     border-radius: 3px;
+ }
+ label{
+     color: black;
+     font-weight: bold;
+     font-size: 18px;
+     margin-left: 15px;
+ }
+ .naslov{
+     color: brown;
+     margin-left: 60px;
+     font-weight: bold;
+     margin-bottom: 30px;
+      }
+ .reset{
+     margin-top: 70px;
+     width: 150px;
+     font-weight: bold;
+     margin-left: 60px;
+ }
+</style>
+</html>
